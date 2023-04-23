@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Form () {
+function Form ({ onNewRequest, isLoggedIn, handleLogIn }) {
+
+    const [formData, setFormData] = useState({
+        name: '',
+        date: '',
+        budget: '',
+        details: '',
+    })
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        onNewRequest(formData)
+    }
+
+    function handleChange(event) {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value,
+        })
+    }
+
     return (
         <>
-            <button onClick={handleLogout}>{isLoggedIn ? 'Logout' : 'Login'}</button>
+            <button onClick={handleLogIn}>{isLoggedIn ? 'Logout' : 'Login'}</button>
             <h3>We can't wait to help you with your big day!  Please fill out your event's info below and we will reach out within 1 business day</h3>
             <form onSubmit={handleSubmit}>
                 Name
