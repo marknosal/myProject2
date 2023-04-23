@@ -1,32 +1,6 @@
-import React, { useState } from "react";
-import Requests from './Components/Requests'
-import Form from './Components/Form'
+import React from 'react';
 
-
-function Contact ({ onNewRequest, isLoggedIn, setIsLoggedIn }) {
-    const [formData, setFormData] = useState({
-        name: '',
-        date: '',
-        budget: '',
-        details: '',
-    })
-
-    function handleSubmit(event) {
-        event.preventDefault()
-        onNewRequest(formData)
-    }
-
-    function handleChange(event) {
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value,
-        })
-    }
-
-    function handleLogout() {
-        setIsLoggedIn(!isLoggedIn)
-      }
-
+function Form () {
     return (
         <>
             <button onClick={handleLogout}>{isLoggedIn ? 'Logout' : 'Login'}</button>
@@ -54,4 +28,4 @@ function Contact ({ onNewRequest, isLoggedIn, setIsLoggedIn }) {
     )
 }
 
-export default Contact
+export default Form

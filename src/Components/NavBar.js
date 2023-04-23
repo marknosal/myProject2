@@ -12,6 +12,8 @@ function NavBar() {
       textDecoration: "none",
       color: "white",
     };
+
+
   
     return (
       <div className="navbar">
@@ -19,6 +21,7 @@ function NavBar() {
         <NavLink to="/about" exact style={linkStyles} activeStyle={{ background: "pink", }}>About</NavLink>
         <NavLink to="/gallery" exact style={linkStyles} activeStyle={{ background: "pink", }}>Gallery</NavLink>
         <NavLink to="/contact" exact style={linkStyles} activeStyle={{ background: "pink", }}>Contact</NavLink>
+        
       </div>
     )
   }
