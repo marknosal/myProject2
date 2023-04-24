@@ -13,6 +13,13 @@
       "budget": "3k",
       "details": "Hello",
       "id": 2
+    },
+    {
+      "name": "Dayna",
+      "date": "2023-04-25",
+      "budget": "4 dolars",
+      "details": "I want something green",
+      "id": 3
     }
   ]
 }

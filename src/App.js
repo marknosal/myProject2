@@ -13,10 +13,9 @@ import Requests from './Components/Requests'
 function App() {
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: 'mistyrose', height: '100vh' }}>
       {/* <TestComponent onClick={handleTestClick}> button </TestComponent> */}
       <NavBar />
-
       <Switch>
         <Route exact path='/about'>
           <About />
