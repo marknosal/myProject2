@@ -1,0 +1,32 @@
+{
+  "requests": [
+    {
+      "id": 1,
+      "name": "Kelsie",
+      "date": "04-03-2023",
+      "budget": "1 dollar",
+      "details": "Please make this an orange themed party because that is my favorite color"
+    },
+    {
+      "name": "sdfsdfsdf",
+      "date": "",
+      "budget": "",
+      "details": "",
+      "id": 2
+    },
+    {
+      "name": "zssfdgzdfgf",
+      "date": "",
+      "budget": "",
+      "details": "",
+      "id": 3
+    },
+    {
+      "name": "Jane Doe",
+      "date": "1990-11-10",
+      "budget": "eighty bajillion yen",
+      "details": "Hello there!",
+      "id": 4
+    }
+  ]
+}

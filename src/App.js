@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from "react";
+import React from "react";
 import { Route, Switch } from 'react-router-dom'
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
@@ -11,16 +11,6 @@ import Requests from './Components/Requests'
 
 
 function App() {
-  const [eventRequests, setEventRequests] = useState([])
-  
-
-  function handleNewRequest(request) {
-    console.log(request)
-  }
-
-  // function handleTestClick() {
-  //   console.log('hello')
-  // }
 
   return (
     <div className="App">
@@ -35,7 +25,7 @@ function App() {
           <Gallery />
         </Route>
         <Route exact path='/contact'>
-          <Contact onNewRequest={handleNewRequest} />
+          <Contact />
         </Route>
         <Route exact path='/requests'>
           <Requests />

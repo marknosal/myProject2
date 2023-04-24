@@ -11,7 +11,31 @@ function Form ({ onNewRequest, isLoggedIn, handleLogIn }) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        onNewRequest(formData)
+
+        const newRequest = {
+            name: event.target[0].value,
+            date: event.target[1].value,
+            budget: event.target[2].value,
+            details: event.target[3].value,
+        }
+
+        /* DO POST FETCH HERE */
+        fetch('http://localhost:3000/requests', {
+            'method': 'POST',
+            'headers': {
+                'Content-Type': 'application/json',
+            },
+            'body': JSON.stringify(newRequest)
+        })
+            .then(response => response.json())
+            .then(data => onNewRequest(data))
+
+        setFormData({
+            name: '',
+            date: '',
+            budget: '',
+            details: '',
+        })
     }
 
     function handleChange(event) {
@@ -28,19 +52,19 @@ function Form ({ onNewRequest, isLoggedIn, handleLogIn }) {
             <form onSubmit={handleSubmit}>
                 Name
                 <br/>
-                <input name='name' onChange ={handleChange} placeholder='Jane Doe' />
+                <input name='name' value={formData.name} onChange ={handleChange} placeholder='Jane Doe' />
                 <br/>
                 Event Date
                 <br/>
-                <input name='date' onChange={handleChange} type='date' />
+                <input name='date' value={formData.date} onChange={handleChange} type='date' />
                 <br/>
                 Budget
                 <br/>
-                <input name='budget' onChange={handleChange} placeholder='$18 million' />
+                <input name='budget' value={formData.budget} onChange={handleChange} placeholder='$18 million' />
                 <br/>
                 Event Details
                 <br/>
-                <textarea name='details' onChange={handleChange} placeholder='Event themes, special requests/requirements, etc' rows="14" cols="100" wrap="soft"/>
+                <textarea name='details' value={formData.details} onChange={handleChange} placeholder='Event themes, special requests/requirements, etc' rows="14" cols="100" wrap="soft"/>
                 <br/>
                 <input type="submit" value="Submit Request"/>
             </form>

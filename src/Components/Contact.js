@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Requests from './Requests'
 import Form from './Form'
 
 
-function Contact ({ onNewRequest }) {
+function Contact () {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [eventRequests, setEventRequests] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:3000/requests')
+            .then(response => response.json())
+            .then((data) => setEventRequests(data))
+    }, [])
+
+    function handleNewRequest(request) {
+        setEventRequests([...eventRequests, request])
+    }
+
 
     function handleLogIn(){
-        console.log(isLoggedIn)
         setIsLoggedIn(isLoggedIn => !isLoggedIn)
     }
 
     return (
-        (isLoggedIn) ? <Requests handleLogIn={handleLogIn} isLoggedIn={isLoggedIn} /> : <Form handleLogIn={handleLogIn} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} onNewRequest={onNewRequest} />
+        (isLoggedIn) ? <Requests eventRequests={eventRequests} handleLogIn={handleLogIn} isLoggedIn={isLoggedIn} /> : <Form handleLogIn={handleLogIn} isLoggedIn={isLoggedIn} onNewRequest={handleNewRequest} />
     )
 }
 
