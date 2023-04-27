@@ -18,7 +18,7 @@ function Gallery() {
             {images.map((image, index) => (
                 <>
                     <img 
-                        key={index} 
+                        key={image} 
                         src={image} 
                         alt={`Name ${index+1}`} 
                         style={{ width: imageWidth, height: imageHeight, objectFit: objectFit }}

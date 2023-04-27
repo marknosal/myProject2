@@ -17,13 +17,17 @@ function Contact () {
         setEventRequests([...eventRequests, request])
     }
 
+    function handleComplete(completedRequest) {
+        const updatedRequests = eventRequests.map(request => request.id === completedRequest.id ? completedRequest : request)
+        setEventRequests(updatedRequests)
+    }
 
     function handleLogIn(){
         setIsLoggedIn(isLoggedIn => !isLoggedIn)
     }
 
     return (
-        (isLoggedIn) ? <Requests eventRequests={eventRequests} handleLogIn={handleLogIn} isLoggedIn={isLoggedIn} /> : <Form handleLogIn={handleLogIn} isLoggedIn={isLoggedIn} onNewRequest={handleNewRequest} />
+        (isLoggedIn) ? <Requests eventRequests={eventRequests} onComplete={handleComplete} handleLogIn={handleLogIn} isLoggedIn={isLoggedIn} /> : <Form handleLogIn={handleLogIn} isLoggedIn={isLoggedIn} onNewRequest={handleNewRequest} />
     )
 }
 

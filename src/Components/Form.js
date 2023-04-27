@@ -7,6 +7,7 @@ function Form ({ onNewRequest, isLoggedIn, handleLogIn }) {
         date: '',
         budget: '',
         details: '',
+        complete: false
     })
 
     function handleSubmit(event) {
@@ -17,6 +18,7 @@ function Form ({ onNewRequest, isLoggedIn, handleLogIn }) {
             date: event.target[1].value,
             budget: event.target[2].value,
             details: event.target[3].value,
+            complete: false
         }
 
         /* DO POST FETCH HERE */
@@ -35,6 +37,7 @@ function Form ({ onNewRequest, isLoggedIn, handleLogIn }) {
             date: '',
             budget: '',
             details: '',
+            complete: false
         })
     }
 

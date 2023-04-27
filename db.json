@@ -5,6 +5,7 @@
       "date": "04-03-2023",
       "budget": "1 dollar",
       "details": "Please make this an orange themed party because that is my favorite color",
+      "complete": false,
       "id": 1
     },
     {
@@ -12,6 +13,7 @@
       "date": "2012-12-12",
       "budget": "3k",
       "details": "Hello",
+      "complete": false,
       "id": 2
     },
     {
@@ -19,6 +21,7 @@
       "date": "2023-04-25",
       "budget": "4 dolars",
       "details": "I want something green",
+      "complete": false,
       "id": 3
     },
     {
@@ -26,28 +29,8 @@
       "date": "2312-12-31",
       "budget": "ten",
       "details": "Hello there",
+      "complete": false,
       "id": 4
-    },
-    {
-      "name": "1moreTime",
-      "date": "1010-01-10",
-      "budget": "1010101",
-      "details": "Trying once again",
-      "id": 5
-    },
-    {
-      "name": "Mark",
-      "date": "2023-04-25",
-      "budget": "$130,000",
-      "details": "I have a wedding please make it forest themed",
-      "id": 6
-    },
-    {
-      "name": "TESTTT",
-      "date": "",
-      "budget": "",
-      "details": "",
-      "id": 7
     }
   ]
 }

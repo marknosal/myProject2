@@ -1,7 +1,7 @@
 import React from "react";
 import Request from "./Request"
 
-function Requests ({ handleLogIn, isLoggedIn, eventRequests }) {
+function Requests ({ handleLogIn, isLoggedIn, eventRequests, onComplete }) {
 
     return (
         <>
@@ -10,7 +10,7 @@ function Requests ({ handleLogIn, isLoggedIn, eventRequests }) {
             <hr style={{ borderWidth: '3px', borderColor: 'red' }}/>
             {eventRequests.map(request => {
                 return (
-                    <Request key={request.id} request={request} />
+                    <Request key={request.id} onComplete={onComplete} request={request} />
                 )
             })}
             

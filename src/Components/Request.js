@@ -1,23 +1,36 @@
 import React, { useState } from 'react';
 
-function Request ({ request }) {
+function Request ({ request, onComplete }) {
     
     const arrayValues = Object.values(request).slice(0,4)
-    const [completion, setCompletion] = useState(false)
 
     function handleClick() {
-        setCompletion(completion => !completion)
-    }
+
+        const updatedRequest = {
+            "complete": !request.complete,
+        }
+        console.log(updatedRequest)
+        
+        fetch(`http://localhost:3000/requests/${request.id}`, {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedRequest)
+        })
+            .then(response => response.json())
+            .then(data => onComplete(data))
+      }
     
 
     return (
-        <div className='completion' style={{ backgroundColor: completion ? 'mediumspringgreen' : 'pink' }}>
+        <div className='completion' style={{ backgroundColor: request.complete ? 'mediumspringgreen' : 'pink' }}>
             {arrayValues.map(value => {
                 return (
                     <h3 key={value}>{value}</h3>
                 )
             })}
-            <button onClick={handleClick}>{completion ? 'Complete!' : 'Incomplete...'}</button>
+            <button onClick={handleClick}>{request.complete ? 'Complete!' : 'Incomplete...'}</button>
         </div>
     )
 }
